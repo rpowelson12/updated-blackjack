@@ -1,27 +1,25 @@
 from cards import Card
+import random
 
 class Deck():
 
-    def create_deck():
+    def __init__(self):
+        self.deck = []
+
+    def create_deck(self):
         ranks = ["Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace"]
         suits = ["Clubs", "Diamonds", "Hearts", "Spades"]
 
-        deck = []
+        
 
         for i in range(len(suits)):
             for j in range(len(ranks)):
                 card = Card(ranks[j], suits[i])
-                deck.append(card)
+                self.deck.append(card)
+
+        random.shuffle(self.deck)
         
-        return deck
-
-    def shuffle(self):
-        # shuffles cards
-        pass
-
-    def deal(self):
-        # deals cards
-        pass
-
-    def get_deck(self):
-        return Deck.deck
+        return self.deck
+    
+    def __repr__(self):
+        return repr(self.deck)

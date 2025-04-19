@@ -1,3 +1,6 @@
+from word2number import w2n 
+import random
+
 class Card():
     def __init__(self, rank, suit):
         self.rank = rank
@@ -8,3 +11,4 @@ class Card():
     
     
         
+    
