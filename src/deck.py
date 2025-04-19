@@ -5,6 +5,7 @@ class Deck():
 
     def __init__(self):
         self.deck = []
+        
 
     def create_deck(self):
         ranks = ["Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace"]
