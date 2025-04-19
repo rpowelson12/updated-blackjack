@@ -14,7 +14,7 @@ def main():
         player_hand.append(shuffled_deck.pop())
         dealer_hand.append(shuffled_deck.pop())
 
-    player_turn(player_hand)
+    player_turn(player_hand, shuffled_deck)
 
     # winner = determine_winner(player_hand, dealer_hand)
 
@@ -39,9 +39,22 @@ def determine_winner(player, dealer):
     if dealer_total < player_total:
         return "Player Wins"
     
-def player_turn(player):
+def player_turn(player, deck):
     total = evaluate_hand(player)
     print(f"Player total is: {total}")
-    input(f"Hit or Stay?: ")
+    if (total == 21):
+        print("Blackjack!")
+    player_decision = input(f"Hit(H) or Stay(S)?: ")
+    while player_decision.lower() == "h" and total <= 21:
+        player.append(deck.pop())
+        total = 0
+        total += evaluate_hand(player)
+        if (total > 21):
+            print(f"Player total is: {total}")
+            print("Player busted!")
+            return
+        print(total)
+        player_decision = input(f"Hit(H) or Stay(S)?: ")
+    
 
 main()
